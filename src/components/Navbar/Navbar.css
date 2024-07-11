@@ -1,0 +1,122 @@
+.app__navbar {
+    display: flex;
+    align-self: center;
+    justify-content: flex-end;
+    height: 50px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    z-index: 2;
+}
+
+.app__navbar li {
+    list-style: none;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.app__navbar li a{
+    padding: 2px;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-white);
+    transition: 0.3s ease;
+}
+
+.app__navbar li a:hover{
+    color: var(--color-black);
+    text-decoration: underline;
+}
+
+.app__navbar li a.active {
+    text-decoration: underline;
+    color: var(--color-black);
+}
+
+/* .search_bar {
+    display: flex;
+}
+
+.search_bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.search_bar button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search_bar button:hover {
+    background-color: #0056b3;
+} */
+ /* Navbar.css */
+/* .app__navbar {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.app__navbar li {
+    margin: 0 10px;
+}
+
+.search_bar {
+    display: flex;
+    position: relative;
+}
+
+.search_bar input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.search_bar button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search_bar button:hover {
+    background-color: #0056b3;
+}
+
+.result-box {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.result-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.result-box li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.result-box li:hover {
+    background-color: #f0f0f0;
+} */

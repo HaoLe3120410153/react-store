@@ -1,0 +1,64 @@
+.app__product-manage{
+    margin: 10px auto;
+    width: 90%;
+}
+
+.app__product-manage__add-button button{
+    padding: 10px;
+}
+
+.app__product__category {
+    margin-bottom: 20px;
+}
+
+.app__product__table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.app__product__table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.app__product__table th, .app__product__table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.app__product__table th {
+    background-color: #f4f4f4;
+}
+
+.app__product__table img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.app__product__img{
+    /* display: flex;
+    justify-content: center; */
+}
+
+.edit-button, .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.edit-button {
+    color: #4CAF50; /* Green color for edit button */
+}
+
+.delete-button {
+    color: #F44336; /* Red color for delete button */
+}
+
+.edit-button:hover, .delete-button:hover {
+    opacity: 0.7;
+}
+

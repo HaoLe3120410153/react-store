@@ -1,0 +1,25 @@
+.swiper-container {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    height: 200px;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: calc((100% - 20px) / 3);
+    margin-right: 10px;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
