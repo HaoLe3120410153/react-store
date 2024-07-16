@@ -32,6 +32,8 @@ const AddProductForm = () => {
     if (!category || !proName || !proPriceIn || !proPriceOut || !proQuantity || !proCompany || !file) {
       alert('Vui lòng điền tất cả các trường và chọn tệp ảnh.');
       return;
+    }else{
+      alert('Đã Thêm Sản Phẩm Thành Công!')
     }
 
     const storageRef = strRef(storage, `images/${file.name}`);

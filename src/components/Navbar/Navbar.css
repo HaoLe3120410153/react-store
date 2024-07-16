@@ -8,32 +8,34 @@
     top: 0;
     background: var(--color-bg);
     z-index: 2;
+
+    li {
+        list-style: none;
+        padding: 10px 20px;
+        position: relative;
+
+        a{
+            padding: 2px;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-white);
+            transition: 0.3s ease;
+
+            &:hover{
+                color: var(--color-black);
+                text-decoration: underline;
+            }
+
+            &.active {
+            color: var(--color-black);
+            }
+        }
+    }
 }
 
-.app__navbar li {
-    list-style: none;
-    padding: 10px 20px;
-    position: relative;
-}
 
-.app__navbar li a{
-    padding: 2px;
-    text-decoration: none;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--color-white);
-    transition: 0.3s ease;
-}
 
-.app__navbar li a:hover{
-    color: var(--color-black);
-    text-decoration: underline;
-}
-
-.app__navbar li a.active {
-    text-decoration: underline;
-    color: var(--color-black);
-}
 
 /* .search_bar {
     display: flex;

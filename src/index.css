@@ -10,8 +10,10 @@
     --color-grey: rgb(233 237 240);
     --color-white: #FFFFFF;
     --color-light_green : rgb(239 255 242);
+    --color-light_grey_input: #e8f0fe;
     --color-green: #018846;
     --color-green_btn: #29ef8f;
+    --color-green_btn_hover: #0f5332;
     --color-bg: radial-gradient(159.85% 367.97% at 150% 123.85%, #ffe147 0, #65ae17 38.76%, #469c4b 59.65%, #00713b 100%);
 }
 

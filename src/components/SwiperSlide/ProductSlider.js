@@ -3,14 +3,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import {images} from '../../constants';
 import 'swiper/swiper-bundle.css';
+import './ProductSlider.css'
 
 
 const ProductSlider = () => {
     return (
         <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            slidesPerView={1}
-            spaceBetween={100}
+            slidesPerView={1} //số slide trên mỗi trang
+            //spaceBetween={100} // khoảng cách giữa các slide
             navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}

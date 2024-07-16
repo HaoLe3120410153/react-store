@@ -51,7 +51,7 @@ const ProductManagement = () => {
                 </button>
                 {showAddProductForm && <AddProductForm />}
             </div>
-            <div className="app__product__list">
+            <div className="app__product__list-manage">
         <h1>Danh sách sản phẩm</h1>
         {Object.keys(products).map((category) => (
           <div key={category} className="app__product__category">

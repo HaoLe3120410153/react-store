@@ -24,3 +24,10 @@
     display: flex;
     justify-content: center;
 }
+
+@media screen and (max-width: 768px){
+    .app__form_add label {
+        width: 40%;
+        line-height: 30px;
+    }
+}

@@ -10,8 +10,8 @@ const Register = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    const handleRegister = async (event) => {
-        event.preventDefault();
+    const handleRegister = async (e) => {
+        e.preventDefault();
         if (password !== confirmPassword) {
             setError("Passwords do not match");
             return;
@@ -20,31 +20,41 @@ const Register = () => {
         try {
             const auth = getAuth();
             await createUserWithEmailAndPassword(auth, email, password);
-            navigate('/login'); // Redirect to login page after successful registration
+            navigate('/login');
             } catch (error) {
             setError(error.message);
         }
     };
 
+    const handleToLogin = () => {
+        navigate('/login')
+    }
+
     return (
-        <div className="register-container">
-        <h1>Register</h1>
-        <form onSubmit={handleRegister}>
-            <div>
-            <label>Email:</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <div className='register'>
+            <div className="register-container">
+            <h1>Đăng Ký</h1>
+            <form onSubmit={handleRegister}>
+                <div>
+                <label>Email:</label>
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                </div>
+                <div>
+                <label>Mật Khẩu:</label>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                </div>
+                <div>
+                <label>Nhập lại Mật Khẩu:</label>
+                <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+                </div>
+                {error && <p className="error">{error}</p>}
+                <button className="custom__button" type="submit">Đăng Ký</button>
+            </form>
+            <div className='btn_back_tologin'>
+                <p>Đã có tài khoản</p>
+                <button className="custom__button" onClick={handleToLogin}>Trở về trang đăng nhập</button>
             </div>
-            <div>
-            <label>Password:</label>
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </div>
-            <div>
-            <label>Confirm Password:</label>
-            <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-            </div>
-            {error && <p className="error">{error}</p>}
-            <button type="submit">Register</button>
-        </form>
+        </div>
         </div>
     );
 };
