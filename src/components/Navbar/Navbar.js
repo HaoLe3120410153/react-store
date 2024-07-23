@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { MdPerson, MdSearch, MdLogout } from 'react-icons/md';
 import { ref, get } from 'firebase/database';
@@ -15,7 +15,7 @@ const Navbar = () => {
     const [isLogin, setIsLogin] = useState(false);
     const searchContainerRef = useRef(null);
 
-    const handleSearch = useCallback(async () => {
+    const handleSearch = useMemo(() => async () => {
         const productsRef = ref(database, 'products');
         const categoriesSnapshot = await get(productsRef);
 
@@ -43,24 +43,19 @@ const Navbar = () => {
         }
     }, [searchTerm]);
 
+    const debounceSearch = useMemo(() => debounce(handleSearch, 300), [handleSearch]);
+
     const handleInputChange = (e) => {
         setSearchTerm(e.target.value);
         debounceSearch();
     };
-
-    const debounceSearch = useCallback(
-        debounce(() => {
-            handleSearch();
-        }, 300),
-        [handleSearch]
-    );
 
     const handleProductClick = (category, productId) => {
         navigate(`/productdetail/${category}/${productId}`);
         setResults([]);
     };
 
-    const handleClickOutside = useCallback((event) => {
+    const handleClickOutside = useMemo(() => (event) => {
         if (searchContainerRef.current && !searchContainerRef.current.contains(event.target)) {
             setResults([]);
         }
@@ -80,7 +75,7 @@ const Navbar = () => {
                 setIsLogin(true);
                 const userRef = ref(database, `users/${user.uid}`);
                 const userSnapshot = await get(userRef);
-                if (userSnapshot.exists() && (userSnapshot.val().admin)===true) {
+                if (userSnapshot.exists() && userSnapshot.val().admin === true) {
                     setIsAdmin(true);
                 } else {
                     setIsAdmin(false);
@@ -151,9 +146,9 @@ const Navbar = () => {
                     </li>
                 )}
                 {isAdmin && (
-                <li>
-                    <NavLink to="/users">Users</NavLink>
-                </li>
+                    <li>
+                        <NavLink to="/users">Users</NavLink>
+                    </li>
                 )}
                 {isLogin ? (
                     <li onClick={handleLogout}>
