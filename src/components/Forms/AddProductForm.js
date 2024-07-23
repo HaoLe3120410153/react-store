@@ -42,6 +42,7 @@ const AddProductForm = () => {
     }).then((downloadURL) => {
       const productRef = dbRef(database, `products/${category}`);
       const newProduct = {
+        pro_category: category,
         pro_name: proName,
         pro_price_in: proPriceIn,
         pro_price_out: proPriceOut,

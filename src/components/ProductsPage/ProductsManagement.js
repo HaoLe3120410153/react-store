@@ -7,27 +7,26 @@ import { ref as dbRef, onValue, remove} from 'firebase/database';
 import EditProductModal from '../Forms/EditProductModal'
 
 const ProductManagement = () => {
-    const [showAddProductForm, setShowAddProductForm] = useState(false);
-    const [products, setProducts] = useState({});
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState('');
+  const [showAddProductForm, setShowAddProductForm] = useState(false);
+  const [products, setProducts] = useState({});
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
-    useEffect(() => {
-        const productsRef = dbRef(database, "products");
-        onValue(productsRef, (snapshot) => {
-        if (snapshot.exists()) {
-            setProducts(snapshot.val());
-        } else {
-            setProducts({});
-        }
-        });
+  useEffect(() => {
+    const productsRef = dbRef(database, "products");
+    onValue(productsRef, (snapshot) => {
+    if (snapshot.exists()) {
+      setProducts(snapshot.val());
+    } else {
+      setProducts({});
+    }
+    });
     }, []);
 
     const handleDelete = (category, productId) => {
       const productRef = dbRef(database, `products/${category}/${productId}`);
       remove(productRef).then(() => {
-        // Handle successful deletion, if needed
       }).catch((error) => {
         console.error('Error deleting product:', error);
       });
@@ -40,39 +39,39 @@ const ProductManagement = () => {
     };
 
     return (
-        <div className='app__product-manage'>
-            <div className='app__product-manage__title'>
-                <h1>Quản lý sản phẩm và danh mục</h1>
-            </div>
-            <div className='app__product-manage__add-button'>
-                <button className='custom__button' onClick={() => setShowAddProductForm(!showAddProductForm)}>
-                    {showAddProductForm ? "" : "Thêm sản phẩm "}
-                    {showAddProductForm ? <FaMinus /> : <FaPlus />}
-                </button>
-                {showAddProductForm && <AddProductForm />}
-            </div>
-            <div className="app__product__list-manage">
-        <h1>Danh sách sản phẩm</h1>
-        {Object.keys(products).map((category) => (
-          <div key={category} className="app__product__category">
-            <div className="app__product__category-name">
-              <h2>{category.replace(/-/g, ' ')}</h2>
-            </div>
-            <div className="app__product__table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Ảnh</th>
-                    <th>Tên sản phẩm</th>
-                    <th>Giá bán</th>
-                    <th>Số lượng</th>
-                    <th>Công ty</th>
-                    <th>Sửa</th>
-                    <th>Xóa</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {Object.keys(products[category]).slice(0, 10).map((productId) => {
+      <div className='app__product-manage'>
+        <div className='app__product-manage__title'>
+            <h1>Quản lý sản phẩm và danh mục</h1>
+        </div>
+        <div className='app__product-manage__add-button'>
+          <button className='custom__button' onClick={() => setShowAddProductForm(!showAddProductForm)}>
+            {showAddProductForm ? "" : "Thêm sản phẩm "}
+            {showAddProductForm ? <FaMinus className='svg'/> : <FaPlus className='svg'/>}
+          </button>
+          {showAddProductForm && <AddProductForm />}
+        </div>
+        <div className="app__product__list-manage">
+          <h1>Danh sách sản phẩm</h1>
+          {Object.keys(products).map((category) => (
+            <div key={category} className="app__product__category">
+              <div className="app__product__category-name">
+                <h2>{category.replace(/-/g, ' ')}</h2>
+              </div>
+              <div className="app__product__table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Ảnh</th>
+                      <th>Tên sản phẩm</th>
+                      <th>Giá bán</th>
+                      <th>Số lượng</th>
+                      <th>Công ty</th>
+                      <th>Sửa</th>
+                      <th>Xóa</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Object.keys(products[category]).slice(0, 10).map((productId) => {
                     const product = products[category][productId];
                     return (
                       <tr key={productId} className="app__product">
@@ -93,22 +92,22 @@ const ProductManagement = () => {
                         </td>
                       </tr>
                     );
-                  })}
-                </tbody>
-              </table>
+                    })}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-      {isEditModalOpen && (
-        <EditProductModal
-          isOpen={isEditModalOpen}
-          onClose={() => setIsEditModalOpen(false)}
-          product={selectedProduct}
-          category={selectedCategory}
-        />
-      )}
+          ))}
         </div>
+        {isEditModalOpen && (
+          <EditProductModal
+            isOpen={isEditModalOpen}
+            onClose={() => setIsEditModalOpen(false)}
+            product={selectedProduct}
+            category={selectedCategory}
+          />
+        )}
+      </div>
     );
 };
 

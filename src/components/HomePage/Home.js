@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { database } from '../../firebaseConfig';
 import { ref as dbRef, onValue } from 'firebase/database';
 import ProductSlider from '../SwiperSlide/ProductSlider';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
     const [products, setProducts] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         const productsRef = dbRef(database, "products");
@@ -17,6 +19,11 @@ const Home = () => {
         }
         });
     }, []);
+
+    const handleProduct = (category, productId) => {
+        navigate(`/productdetail/${category}/${productId}`);
+        console.log(productId)
+    }
 
     return (
         <div className='app__home-page'>
@@ -32,7 +39,7 @@ const Home = () => {
                             {Object.keys(products[category]).slice(0, 8).map((productId) => {
                             const product = products[category][productId];
                             return (
-                                <div key={productId} className='app__product'>
+                                <div key={productId} className='app__product' onClick={() => handleProduct(category,productId)}>
                                 <img src={product.imageUrl} alt={product.pro_name} />
                                 <div className='app__product__details'>
                                     <h4>{product.pro_name}</h4>

@@ -13,7 +13,7 @@ const Login = () => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then(() => {
-            navigate("/product-management");
+            navigate("/");
             })
             .catch((error) => {
             console.error("Login failed", error);

@@ -22,12 +22,26 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    background-color: var(--color-grey);
+}
 
+.svg{
+    background-color: transparent;
+}
+
+svg{
+    background-color: transparent;
 }
 
 a {
     color: unset;
     text-decoration: none;
+    background-color: transparent;
+}
+
+h1,h2,h3,h4,h5,span {
+    background-color: transparent;
+    font-weight: 400;
 }
 
 .slide-bottom {
