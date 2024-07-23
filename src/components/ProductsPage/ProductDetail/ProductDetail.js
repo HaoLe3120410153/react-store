@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { MdReply, MdArrowLeft, MdArrowRight } from 'react-icons/md';
-import { ref, get } from 'firebase/database';
+import { ref, get, set as dbSet } from 'firebase/database';
 import { database } from '../../../firebaseConfig';
 import './ProductDetail.css';
 
@@ -83,6 +83,18 @@ const ProductDetail = () => {
         navigate(`/productdetail/${category}/${productId}`);
     }
 
+    const handleBuyProduct = async (category, productId, currentStatus) => {
+        if (!currentStatus) { // Chỉ cho phép thay đổi nếu currentStatus là false
+            const productRef = ref(database, `products/${category}/${productId}`);
+            const newStatus = !currentStatus;
+            const updatedProduct = { ...product, buy: newStatus };
+
+            await dbSet(productRef, updatedProduct);
+
+            setProduct(updatedProduct); // Cập nhật state sản phẩm
+        }
+    };
+
     return (
         <div className='product'>
             <div className='product__back'>
@@ -140,7 +152,11 @@ const ProductDetail = () => {
                         <span>{product.pro_price_in}đ</span>
                     </div>
                     <div className='product__buy'>
-                        <button className='custom__button'><p>Yêu Cầu Nhập Hàng</p></button>
+                        <button className='custom__button' onClick={() => handleBuyProduct(category, productId, product.buy)}>
+                            {
+                                product.buy ? <p>Đang Yêu Cầu</p> : <p>Yêu Cầu Nhập Hàng</p>
+                            }
+                        </button>
                     </div>
                 </div>
             </div>
