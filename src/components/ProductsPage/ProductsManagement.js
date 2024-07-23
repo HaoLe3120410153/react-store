@@ -28,7 +28,6 @@ const ProductManagement = () => {
   const handleDelete = (category, productId) => {
     const productRef = dbRef(database, `products/${category}/${productId}`);
     remove(productRef).then(() => {
-      // Update local state after deletion
       setProducts(prevProducts => {
         const updatedProducts = { ...prevProducts };
         delete updatedProducts[category][productId];

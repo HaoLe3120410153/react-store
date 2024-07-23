@@ -10,8 +10,7 @@ const ProductSlider = () => {
     return (
         <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            slidesPerView={1} //số slide trên mỗi trang
-            //spaceBetween={100} // khoảng cách giữa các slide
+            slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}

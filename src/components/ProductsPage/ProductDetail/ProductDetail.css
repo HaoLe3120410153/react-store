@@ -97,8 +97,8 @@
                                 width: 30%;
 
                                 h3{
-                                    font-weight: 380;
-                                    font-size: 16px;
+                                    font-weight: 370;
+                                    font-size: 20px;
                                 }
                             }
                         }
@@ -143,14 +143,14 @@
                     &:hover {
                         border-radius: 20px;
                         background-color: var(--color-green_btn_hover);
-                        color: white;
+                        color: var(--color-white)
                     }
                 }
 
                     .active {
                         border-radius: 20px;
                         background-color: var(--color-green);
-                        color: white;
+                        color: var(--color-white)
                     }
             }
         }
@@ -188,6 +188,7 @@
                 .product__buy{
                     width: 100%;
                     background-color: transparent;
+
                     .custom__button{
                         width: 100%;
                         display: flex;
@@ -197,6 +198,10 @@
                             background-color: transparent;
                         }
                     }
+
+                    .requesting {
+                            background-color: rgba(255, 73, 73, 0.800);
+                        }
                 }
         }
 

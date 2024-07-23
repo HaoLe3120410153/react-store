@@ -84,14 +84,14 @@ const ProductDetail = () => {
     }
 
     const handleBuyProduct = async (category, productId, currentStatus) => {
-        if (!currentStatus) { // Chỉ cho phép thay đổi nếu currentStatus là false
+        if (!currentStatus) {
             const productRef = ref(database, `products/${category}/${productId}`);
             const newStatus = !currentStatus;
             const updatedProduct = { ...product, buy: newStatus };
 
             await dbSet(productRef, updatedProduct);
 
-            setProduct(updatedProduct); // Cập nhật state sản phẩm
+            setProduct(updatedProduct);
         }
     };
 
@@ -152,7 +152,10 @@ const ProductDetail = () => {
                         <span>{product.pro_price_in}đ</span>
                     </div>
                     <div className='product__buy'>
-                        <button className='custom__button' onClick={() => handleBuyProduct(category, productId, product.buy)}>
+                        <button
+                            className={`custom__button ${product.buy ? 'requesting' : ''}`}
+                            onClick={() => handleBuyProduct(category, productId, product.buy)}
+                        >
                             {
                                 product.buy ? <p>Đang Yêu Cầu</p> : <p>Yêu Cầu Nhập Hàng</p>
                             }

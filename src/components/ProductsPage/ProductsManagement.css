@@ -80,11 +80,11 @@ table {
 }
 
 .edit-button {
-    color: #4CAF50; /* Green color for edit button */
+    color: #4CAF50;
 }
 
 .delete-button {
-    color: #F44336; /* Red color for delete button */
+    color: #F44336;
 }
 
 .edit-button:hover, .delete-button:hover {
