@@ -28,6 +28,7 @@
     text-align: center;
     padding: 10px;
     background-color: transparent;
+    font-size: 24px;
 }
 
 .app__product__container {
@@ -43,7 +44,7 @@
     flex-basis: calc(25% - 20px);
     margin: 10px auto;
     width: 200px;
-    height: 350px;
+    height: 300px;
 }
 
 .app__product {
@@ -71,6 +72,20 @@
     align-items: flex-start;
     line-height: 25px;
     background-color: transparent;
+
+    div{
+        height: 50px;
+        background-color: transparent;
+
+        h5{
+            font-weight: 400;
+            font-size: 18px
+        };
+    }
+    h6{
+        font-size: 15px;
+        font-weight: 350;
+    }
 }
 
 
@@ -85,6 +100,6 @@
         flex-basis: calc(25% - 20px);
         margin: 10px auto;
         width: 200px;
-        height: 350px;
+        height: 300px;
     }
 }

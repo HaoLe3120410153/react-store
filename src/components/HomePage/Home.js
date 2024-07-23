@@ -42,10 +42,10 @@ const Home = () => {
                                 <div key={productId} className='app__product' onClick={() => handleProduct(category,productId)}>
                                 <img src={product.imageUrl} alt={product.pro_name} />
                                 <div className='app__product__details'>
-                                    <h4>{product.pro_name}</h4>
-                                    <h5>Giá bán: {product.pro_price_out}</h5>
-                                    <h5>Số lượng: {product.pro_quantity}</h5>
-                                    <h5>Công ty: {product.pro_company}</h5>
+                                    <div><h5>{product.pro_name}</h5></div>
+                                    <h6>Giá bán: {product.pro_price_out}</h6>
+                                    <h6>Số lượng: {product.pro_quantity}</h6>
+                                    <h6>Công ty: {product.pro_company}</h6>
                                 </div>
                                 </div>
                             );

@@ -52,7 +52,6 @@ const UserManager = () => {
                     <thead>
                         <tr>
                             <th>Email</th>
-                            <th>Mật Khẩu</th>
                             <th>Địa Chỉ</th>
                             <th>Quản Lý</th>
                             <th>Xóa</th>
@@ -62,7 +61,6 @@ const UserManager = () => {
                         {users.map(user => (
                             <tr key={user.uid}>
                                 <td>{user.email}</td>
-                                <td>{user.password}</td>
                                 <td>{user.address || 'N/A'}</td>
                                 <td onClick={() => handleToggleAdmin(user.uid, user.admin)} style={{ cursor: 'pointer' }}>
                                     {user.admin ? <IoMdCheckmark /> : <IoMdCloseCircle />}

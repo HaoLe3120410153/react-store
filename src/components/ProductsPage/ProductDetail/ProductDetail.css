@@ -95,6 +95,11 @@
 
                             .td_first{
                                 width: 30%;
+
+                                h3{
+                                    font-weight: 380;
+                                    font-size: 16px;
+                                }
                             }
                         }
                     }
@@ -161,11 +166,20 @@
 
                 .product__name{
                     background-color: transparent;
+
+                    h3{
+                        font-weight: 360;
+                        font-size: 22px;
+                    }
                 }
 
                 .product__price{
                     background-color: transparent;
 
+                    h2{
+                        font-weight: 360;
+                        font-size: 26px;
+                    }
                     span{
                         text-decoration: line-through;
                     }
@@ -236,8 +250,23 @@
                     gap: 10px;
 
                     .detail {
-                        height: 60px;
+                        height: 70px;
                         background-color: transparent;
+
+                        div{
+                            background-color: transparent;
+                            height: 50px;
+
+                            h4{
+                                font-weight: 370;
+                                font-size: 20px;
+                            }
+                        }
+
+                        span{
+                            font-size: 15px;
+                        }
+
                     }
 
                     .custom__button{

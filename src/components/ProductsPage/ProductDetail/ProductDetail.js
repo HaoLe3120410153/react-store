@@ -159,7 +159,9 @@ const ProductDetail = () => {
                                 <img src={item.imageUrl} alt={item.pro_name} />
                                 <div className='product_same-container-detail'>
                                     <div className='detail'>
-                                        <h4>{item.pro_name}</h4>
+                                        <div>
+                                            <h4>{item.pro_name}</h4>
+                                        </div>
                                         <span>{item.pro_price_out}đ</span>
                                     </div>
                                     <button className='custom__button'><p>Xem Ngay</p></button>
